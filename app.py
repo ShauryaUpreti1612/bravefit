@@ -2,12 +2,13 @@
 import streamlit as st
 from PIL import Image
 
-st.set_page_config(page_title="BraveFit", layout="wide")
+st.set_page_config(page_title="BraveFit", layout="centered")
+
+# YouTube + Logo (centered for mobile-first)
 st.markdown("""
 <div style='text-align: center; margin-top: 10px;'>
     <a href='https://www.youtube.com/@Shaurya-h6c' target='_blank' style='text-decoration: none;'>
-        <img src='https://raw.githubusercontent.com/ShauryaUpreti1612/bmi-health-adviser/main/logo.jpg' 
-             style='width: 30vw; max-width: 120px; border-radius: 10px;'><br>
+        <img src='logo.jpg' style='width: 30vw; max-width: 120px; border-radius: 10px;'><br>
         <div style='margin-top: 8px; display: inline-block; padding: 6px 14px; font-size: 14px; font-weight: bold; background-color: #e63946; color: white; border-radius: 5px;'>
             Visit My Channel
         </div>
@@ -15,12 +16,10 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-
-
 # Intro text
 st.markdown("""
-<div style='text-align: left;'>
-    <h1 style="font-family: 'Georgia', serif; font-size: 3em; font-weight: bold; letter-spacing: 1px; margin-bottom: 0.2em;">
+<div style='text-align: center;'>
+    <h1 style="font-family: 'Georgia', serif; font-size: 2.5em; font-weight: bold; letter-spacing: 1px; margin-bottom: 0.2em;">
         BraveFit
     </h1>
     <h4 style="color: gray; font-family: sans-serif; margin-top: 0;">
@@ -42,6 +41,8 @@ Using this information, we’ll calculate your <b>Body Mass Index (BMI)</b> and 
 # Load images
 img_dumbbell = Image.open("dumbbell.png")
 img_eating = Image.open("eating.png")
+img_treadmill = Image.open("treadmill.png")
+img_skipping = Image.open("skipping.png")
 
 # BMI calculation functions
 def calculate_bmi(weight_kg, height_cm):
@@ -58,44 +59,31 @@ def get_bmi_category(age, gender, bmi):
     else:
         return "Obese"
 
-# Three‑column layout
-left_col, mid_col, right_col = st.columns([1, 2, 1])
+# Display images responsively
+st.image([img_dumbbell, img_eating], caption=["💪 Strength Training", "🥗 Healthy Eating"], width=180)
+st.image([img_treadmill, img_skipping], caption=["🏃‍♂️ Cardio Workout", "🤸‍♂️ Skipping Rope"], width=180)
 
-with left_col:
-    st.image(img_dumbbell, caption="💪 Strength Training", use_container_width=True)
-    st.image(img_eating, caption="🥗 Healthy Eating", use_container_width=True)
+st.markdown("### 🧮 Calculate Your BMI")
+age = st.number_input("Enter your age", min_value=1, max_value=120)
+gender = st.selectbox("Select your gender", ["Male", "Female"])
+weight = st.number_input("Enter your weight (in kg)", min_value=1.0, max_value=200.0)
+height = st.number_input("Enter your height (in cm)", min_value=50.0, max_value=250.0)
 
-with mid_col:
-    st.title("🏋️‍♂️ BraveFit")
-    st.write("Find out your Body Mass Index (BMI) and get personalized advice.")
+if st.button("✅ Calculate BMI"):
+    bmi = calculate_bmi(weight, height)
+    category = get_bmi_category(age, gender.lower(), bmi)
 
-    age = st.number_input("Enter your age", min_value=1, max_value=120)
-    gender = st.selectbox("Select your gender", ["Male", "Female"])
-    weight = st.number_input("Enter your weight (in kg)", min_value=1.0, max_value=200.0)
-    height = st.number_input("Enter your height (in cm)", min_value=50.0, max_value=250.0)
+    st.subheader(f"📊 Your BMI: `{bmi:.2f}`")
+    st.subheader(f"📌 Category: `{category}`")
 
-    if st.button("✅ Calculate BMI"):
-        bmi = calculate_bmi(weight, height)
-        category = get_bmi_category(age, gender.lower(), bmi)
-
-        st.subheader(f"📊 Your BMI: `{bmi:.2f}`")
-        st.subheader(f"📌 Category: `{category}`")
-
-        if category == "Underweight":
-            st.info("💡 **Advice:** Eat nutritious, high‑calorie foods and consult a doctor.")
-        elif category == "Normal weight":
-            st.success("🎉 **Advice:** You’re doing great! Stay active and eat healthy.")
-        elif category == "Overweight":
-            st.warning("⚠️ **Advice:** Be more active and follow a balanced diet.")
-        else:
-            st.error("🚨 **Advice:** Focus on consistent healthy habits — smart eating, daily movement, and enough rest.")
-
-with right_col:
-    img_treadmill = Image.open("treadmill.png")
-    img_skipping = Image.open("skipping.png")
-
-    st.image(img_treadmill, caption="🏃‍♂️ Cardio Workout", use_container_width=True)
-    st.image(img_skipping, caption="🤸‍♂️ Skipping Rope", use_container_width=True)
+    if category == "Underweight":
+        st.info("💡 **Advice:** Eat nutritious, high‑calorie foods and consult a doctor.")
+    elif category == "Normal weight":
+        st.success("🎉 **Advice:** You’re doing great! Stay active and eat healthy.")
+    elif category == "Overweight":
+        st.warning("⚠️ **Advice:** Be more active and follow a balanced diet.")
+    else:
+        st.error("🚨 **Advice:** Focus on consistent healthy habits — smart eating, daily movement, and enough rest.")
 
 # Footer
 st.markdown("""<hr style='margin-top:3em'>
