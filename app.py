@@ -9,7 +9,8 @@ st.markdown("""
     <a href='https://www.youtube.com/@Shaurya-h6c' target='_blank' style='text-decoration: none;'>
         <img src='https://raw.githubusercontent.com/ShauryaUpreti1612/bmi-health-adviser/main/logo.jpg' width='400' style='border-radius: 10px;'><br>
         <button style='margin-top: 8px; padding: 6px 12px; font-size: 14px; background-color: #e63946; color: white; border: none; border-radius: 5px; cursor: pointer;'>
-            Visit My Channel for amazing health tips!
+            Visit My Channel for 
+            amazing health tips!
         </button>
     </a>
 </div>
