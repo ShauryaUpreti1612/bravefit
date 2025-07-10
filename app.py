@@ -8,7 +8,7 @@ st.set_page_config(page_title="BraveFit", layout="centered")
 st.markdown("""
 <div style='text-align: center; margin-top: 10px;'>
     <a href='https://www.youtube.com/@Shaurya-h6c' target='_blank' style='text-decoration: none;'>
-        <img src='logo.jpg' style='width: 30vw; max-width: 120px; border-radius: 50px;'><br>
+        <img src='https://raw.githubusercontent.com/ShauryaUpreti1612/bmi-health-adviser/main/logo.jpg' style='width: 30vw; max-width: 120px; border-radius: 10px;'><br>
         <div style='margin-top: 8px; display: inline-block; padding: 6px 14px; font-size: 14px; font-weight: bold; background-color: #e63946; color: white; border-radius: 5px;'>
             Visit My Channel
         </div>
