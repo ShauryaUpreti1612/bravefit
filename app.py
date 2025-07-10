@@ -38,11 +38,7 @@ Using this information, we’ll calculate your <b>Body Mass Index (BMI)</b> and 
 ➡️ <i>After entering your age, press the <b>Enter</b> key to continue.</i>
 """, unsafe_allow_html=True)
 
-# Load images
-img_dumbbell = Image.open("dumbbell.png")
-img_eating = Image.open("eating.png")
-img_treadmill = Image.open("treadmill.png")
-img_skipping = Image.open("skipping.png")
+
 
 # BMI calculation functions
 def calculate_bmi(weight_kg, height_cm):
@@ -59,9 +55,7 @@ def get_bmi_category(age, gender, bmi):
     else:
         return "Obese"
 
-# Display images responsively
-st.image([img_dumbbell, img_eating], caption=["💪 Strength Training", "🥗 Healthy Eating"], width=180)
-st.image([img_treadmill, img_skipping], caption=["🏃‍♂️ Cardio Workout", "🤸‍♂️ Skipping Rope"], width=180)
+
 
 st.markdown("### 🧮 Calculate Your BMI")
 age = st.number_input("Enter your age", min_value=1, max_value=120)
@@ -84,6 +78,16 @@ if st.button("✅ Calculate BMI"):
         st.warning("⚠️ **Advice:** Be more active and follow a balanced diet.")
     else:
         st.error("🚨 **Advice:** Focus on consistent healthy habits — smart eating, daily movement, and enough rest.")
+
+# Load images
+img_dumbbell = Image.open("dumbbell.png")
+img_eating = Image.open("eating.png")
+img_treadmill = Image.open("treadmill.png")
+img_skipping = Image.open("skipping.png")
+
+# Display images responsively
+st.image([img_dumbbell, img_eating], caption=["💪 Strength Training", "🥗 Healthy Eating"], width=180)
+st.image([img_treadmill, img_skipping], caption=["🏃‍♂️ Cardio Workout", "🤸‍♂️ Skipping Rope"], width=180)
 
 # Footer
 st.markdown("""<hr style='margin-top:3em'>
