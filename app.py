@@ -4,12 +4,13 @@ from PIL import Image
 
 st.set_page_config(page_title="BraveFit", layout="wide")
 st.markdown("""
-<div style='position: absolute; top: 10px; right: 20px; text-align: center; z-index: 100;'>
+<div style='text-align: center; margin-top: 10px;'>
     <a href='https://www.youtube.com/@Shaurya-h6c' target='_blank' style='text-decoration: none;'>
-        <img src='https://raw.githubusercontent.com/ShauryaUpreti1612/bmi-health-adviser/main/logo.jpg' width='80' style='border-radius: 10px;'><br>
-        <button style='margin-top: 8px; padding: 6px 12px; font-size: 13px; background-color: #e63946; color: white; border: none; border-radius: 5px; cursor: pointer;'>
+        <img src='https://raw.githubusercontent.com/ShauryaUpreti1612/bmi-health-adviser/main/logo.jpg' 
+             style='width: 30vw; max-width: 120px; border-radius: 10px;'><br>
+        <div style='margin-top: 8px; display: inline-block; padding: 6px 14px; font-size: 14px; font-weight: bold; background-color: #e63946; color: white; border-radius: 5px;'>
             Visit My Channel
-        </button>
+        </div>
     </a>
 </div>
 """, unsafe_allow_html=True)
