@@ -5,16 +5,17 @@ from PIL import Image
 st.set_page_config(page_title="BraveFit", layout="wide")
 
 st.markdown("""
-<div style='position: absolute; top: 10px; right: 20px; text-align: center; z-index: 100;'>
+<div style='position: absolute; top: 10px; right: 20px; text-align: center; z-index: 100; width: 220px;'>
     <a href='https://www.youtube.com/@Shaurya-h6c' target='_blank' style='text-decoration: none;'>
-        <img src='https://raw.githubusercontent.com/ShauryaUpreti1612/bmi-health-adviser/main/logo.jpg' width='400' style='border-radius: 10px;'><br>
-        <button style='margin-top: 8px; padding: 6px 12px; font-size: 14px; background-color: #e63946; color: white; border: none; border-radius: 5px; cursor: pointer;'>
-            Visit My Channel for 
-            amazing health tips!
-        </button>
+        <img src='https://raw.githubusercontent.com/ShauryaUpreti1612/bmi-health-adviser/main/logo.jpg' 
+             style='width: 100%; max-width: 220px; border-radius: 10px;'><br>
+        <div style='margin-top: 10px; padding: 10px 12px; font-size: 14px; font-weight: bold; background-color: #e63946; color: white; border-radius: 8px; cursor: pointer;'>
+            Visit My Channel<br>for Amazing Health Tips!
+        </div>
     </a>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 # Intro text
